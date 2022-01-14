@@ -14,8 +14,10 @@ bevy_transform = "0.6"
 bevy_asset = "0.6"
 bevy_app = "0.6"
 
-[dev-dependencies]
-bevy = "0.6"
+[dev-dependencies.bevy]
+version= "0.6"
+default-features = false
+features = ["render", "bevy_winit", "x11"]
 
 [[example]]
 name = "changing_colors"
