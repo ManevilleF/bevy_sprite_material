@@ -13,8 +13,9 @@
 )]
 
 use bevy_app::{App, Plugin};
-use bevy_render::RenderStage;
+use bevy_render::{RenderApp, RenderStage};
 pub use bevy_sprite::ColorMaterial;
+pub use bundle::SpriteBundle;
 pub use sprite::Sprite;
 
 mod bundle;
@@ -26,6 +27,8 @@ pub struct MaterialSpritePlugin;
 
 impl Plugin for MaterialSpritePlugin {
     fn build(&self, app: &mut App) {
-        app.add_system_to_stage(RenderStage::Extract, extract::extract_sprites);
+        if let Ok(render_app) = app.get_sub_app_mut(RenderApp) {
+            render_app.add_system_to_stage(RenderStage::Extract, extract::extract_sprites);
+        }
     }
 }

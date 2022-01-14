@@ -14,3 +14,9 @@ bevy_transform = "0.6"
 bevy_asset = "0.6"
 bevy_app = "0.6"
 copyless = "0.1"
+
+[dev-dependencies]
+bevy = "0.6"
+
+[[example]]
+name = "changing_colors"
