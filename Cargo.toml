@@ -1,0 +1,16 @@
+[package]
+name = "bevy_sprite_material"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy_sprite = "0.6"
+bevy_math = "0.6"
+bevy_ecs = "0.6"
+bevy_render = "0.6"
+bevy_transform = "0.6"
+bevy_asset = "0.6"
+bevy_app = "0.6"
+copyless = "0.1"
