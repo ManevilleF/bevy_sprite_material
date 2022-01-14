@@ -8,7 +8,7 @@ repository = "https://github.com/ManevilleF/bevy_sprite_material"
 readme = "README.md"
 description = "Plugin to use materials for sprites"
 keywords = ["bevy", "sprite", "material"]
-exclude = ["examples", "docs", ".github", ".gitignore", "assets"]
+exclude = ["docs", ".github", ".gitignore", "assets"]
 documentation = "http://docs.rs/bevy_sprite_material"
 categories = ["game-engines", "game-development"]
 
