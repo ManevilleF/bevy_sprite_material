@@ -2,6 +2,15 @@
 name = "bevy_sprite_material"
 version = "0.1.0"
 edition = "2021"
+authors = ["Felix de Maneville <felix.maneville@gmail.com>"]
+license-file = "./LICENSE"
+repository = "https://github.com/ManevilleF/bevy_sprite_material"
+readme = "README.md"
+description = "Plugin to use materials for sprites"
+keywords = ["bevy", "sprite", "material"]
+exclude = ["examples", "docs", ".github", ".gitignore", "assets"]
+documentation = "http://docs.rs/bevy_sprite_material"
+categories = ["game-engines", "game-development"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

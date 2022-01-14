@@ -27,7 +27,7 @@ fn setup_camera(mut commands: Commands) {
 
 fn setup_map(mut commands: Commands, mut materials: ResMut<Assets<ColorMaterial>>) {
     let (size_x, size_y) = (10, 10);
-    let sprite_size = 20.;
+    let sprite_size = 30.;
 
     let material = materials.add(Color::BLUE.into());
 
@@ -36,7 +36,7 @@ fn setup_map(mut commands: Commands, mut materials: ResMut<Assets<ColorMaterial>
             commands.spawn_bundle(SpriteBundle {
                 sprite: Sprite::sized(Vec2::splat(sprite_size)),
                 material: material.clone(),
-                transform: Transform::from_xyz(x as f32 * 25., y as f32 * 25., 0.),
+                transform: Transform::from_xyz(x as f32 * 35. - 175., y as f32 * 35. - 175., 0.),
                 ..Default::default()
             });
         }
@@ -48,7 +48,7 @@ fn setup_map(mut commands: Commands, mut materials: ResMut<Assets<ColorMaterial>
 fn change_color(mut materials: ResMut<Assets<ColorMaterial>>, material: Res<MaterialResource>) {
     let material = materials.get_mut(material.material.clone()).unwrap();
     if material.color.r() < 1. {
-        material.color.set_r(material.color.r() + 0.01);
+        material.color.set_r(material.color.r() + 0.02);
     } else {
         material.color.set_r(0.);
     }
