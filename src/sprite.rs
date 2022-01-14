@@ -1,6 +1,7 @@
 use bevy_ecs::component::Component;
 use bevy_math::Vec2;
 
+/// 2D Sprite component
 #[derive(Component, Debug, Default, Clone)]
 #[repr(C)]
 pub struct Sprite {
@@ -14,6 +15,7 @@ pub struct Sprite {
 }
 
 impl Sprite {
+    /// Instantiates an unflipped sprite with a custom size
     pub fn sized(size: Vec2) -> Self {
         Self {
             custom_size: Some(size),

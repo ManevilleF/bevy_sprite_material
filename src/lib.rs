@@ -34,7 +34,7 @@
 //! > This plugin should work fine if you use both the plugin and the base sprite implementation
 //!
 //! [bevy]: https://github.com/bevyengine/bevy
-// #![forbid(missing_docs)]
+#![forbid(missing_docs)]
 #![forbid(unsafe_code)]
 #![warn(
     clippy::all,
@@ -60,6 +60,9 @@ mod bundle;
 mod extract;
 mod sprite;
 
+/// Plugin to use sprites with materials.
+///
+/// It requires both [`bevy_sprite::SpritePlugin`] and [`bevy_sprite::ColorMaterialPlugin`]
 #[derive(Default)]
 pub struct MaterialSpritePlugin;
 
