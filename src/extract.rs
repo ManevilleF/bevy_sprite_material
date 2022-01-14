@@ -6,7 +6,6 @@ use bevy_render::texture::DEFAULT_IMAGE_HANDLE;
 use bevy_render::RenderWorld;
 use bevy_sprite::{ColorMaterial, ExtractedSprite, ExtractedSprites};
 use bevy_transform::prelude::GlobalTransform;
-use copyless::VecHelper;
 
 pub fn extract_sprites(
     mut render_world: ResMut<RenderWorld>,
@@ -19,7 +18,6 @@ pub fn extract_sprites(
     )>,
 ) {
     let mut extracted_sprites = render_world.get_resource_mut::<ExtractedSprites>().unwrap();
-    extracted_sprites.sprites.clear();
     for (visibility, sprite, transform, handle) in sprite_query.iter() {
         if !visibility.is_visible {
             continue;
@@ -33,7 +31,7 @@ pub fn extract_sprites(
                 .id,
         );
         // PERF: we don't check in this function that the `Image` asset is ready, since it should be in most cases and hashing the handle is expensive
-        extracted_sprites.sprites.alloc().init(ExtractedSprite {
+        extracted_sprites.sprites.push(ExtractedSprite {
             color,
             transform: *transform,
             // Use the full texture
