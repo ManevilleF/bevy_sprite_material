@@ -3,7 +3,7 @@ use bevy_math::Vec2;
 use bevy_sprite::Anchor;
 
 /// 2D Texture Atlas Sprite Component
-#[derive(Component, Debug, Clone)]
+#[derive(Component, Debug, Default, Clone)]
 pub struct TextureAtlasSprite {
     /// The Atlas section index
     pub index: usize,
@@ -18,21 +18,9 @@ pub struct TextureAtlasSprite {
     pub anchor: Anchor,
 }
 
-impl Default for TextureAtlasSprite {
-    fn default() -> Self {
-        Self {
-            index: 0,
-            flip_x: false,
-            flip_y: false,
-            custom_size: None,
-            anchor: Anchor::default(),
-        }
-    }
-}
-
 impl TextureAtlasSprite {
     /// Creates a new `TextureAtlasSprite` with a custom `index`
-    pub fn new(index: usize) -> TextureAtlasSprite {
+    pub fn new(index: usize) -> Self {
         Self {
             index,
             ..Default::default()
