@@ -1,6 +1,6 @@
 # CHANGES
 
-## Unreleased
+## 0.2.0
 
 * Bevy `0.7`
 * `Sprite` supports `bevy_sprite::Anchor`
