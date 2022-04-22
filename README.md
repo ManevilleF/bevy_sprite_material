@@ -10,7 +10,7 @@ Materials for sprites in Bevy
 [![unsafe forbidden](https://img.shields.io/badge/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)
 [![Crates.io](https://img.shields.io/crates/v/bevy_sprite_material.svg)](https://crates.io/crates/bevy_sprite_material)
 [![Docs.rs](https://docs.rs/bevy_sprite_material/badge.svg)](https://docs.rs/bevy_sprite_material)
-[![dependency status](https://deps.rs/crate/bevy_sprite_material/0.1.0/status.svg)](https://deps.rs/crate/bevy_sprite_material)
+[![dependency status](https://deps.rs/crate/bevy_sprite_material/0.2.0/status.svg)](https://deps.rs/crate/bevy_sprite_material)
 
 This [bevy] plugin changes the `bevy_sprite` implementation using a material.
 
