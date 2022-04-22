@@ -15,16 +15,18 @@ categories = ["game-engines", "game-development"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bevy_sprite = "0.6"
-bevy_math = "0.6"
-bevy_ecs = "0.6"
-bevy_render = "0.6"
-bevy_transform = "0.6"
-bevy_asset = "0.6"
-bevy_app = "0.6"
+bevy_sprite = "0.7"
+bevy_math = "0.7"
+bevy_ecs = "0.7"
+bevy_render = "0.7"
+bevy_transform = "0.7"
+bevy_asset = "0.7"
+bevy_app = "0.7"
+
+copyless = "0.1"
 
 [dev-dependencies.bevy]
-version= "0.6"
+version= "0.7"
 default-features = false
 features = ["render", "bevy_winit", "x11"]
 
