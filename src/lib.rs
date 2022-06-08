@@ -51,18 +51,17 @@
     rustdoc::broken_intra_links
 )]
 
-use bevy_app::{App, Plugin};
-use bevy_ecs::prelude::*;
-use bevy_render::{RenderApp, RenderStage};
-pub use bevy_sprite::ColorMaterial;
-use bevy_sprite::SpriteSystem::ExtractSprites;
+use bevy::app::{App, Plugin};
+use bevy::ecs::prelude::*;
+use bevy::render::{RenderApp, RenderStage};
+pub use bevy::sprite::ColorMaterial;
+use bevy::sprite::SpriteSystem::ExtractSprites;
 
-pub use {bundle::SpriteBundle, sprite::Sprite, texture_atlas::TextureAtlasSprite};
+pub use {bundle::SpriteBundle, sprite::Sprite};
 
 mod bundle;
 mod extract;
 mod sprite;
-mod texture_atlas;
 
 /// Plugin to use sprites with materials.
 ///

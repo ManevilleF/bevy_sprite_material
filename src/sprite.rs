@@ -1,6 +1,6 @@
-use bevy_ecs::component::Component;
-use bevy_math::Vec2;
-use bevy_sprite::Anchor;
+use bevy::ecs::component::Component;
+use bevy::math::Vec2;
+use bevy::sprite::Anchor;
 
 /// 2D Sprite component
 #[derive(Component, Debug, Default, Clone)]
