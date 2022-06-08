@@ -41,14 +41,9 @@
 #![forbid(unsafe_code)]
 #![warn(
     clippy::all,
-    clippy::correctness,
-    clippy::suspicious,
-    clippy::style,
-    clippy::complexity,
-    clippy::perf,
     clippy::nursery,
     nonstandard_style,
-    rustdoc::broken_intra_links
+    rustdoc::broken_intra_doc_links
 )]
 
 use bevy::app::{App, Plugin};
@@ -65,7 +60,7 @@ mod sprite;
 
 /// Plugin to use sprites with materials.
 ///
-/// It requires both [`bevy_sprite::SpritePlugin`] and [`bevy_sprite::ColorMaterialPlugin`]
+/// It requires both [`bevy::sprite::SpritePlugin`] and [`bevy::sprite::ColorMaterialPlugin`]
 #[derive(Default)]
 pub struct MaterialSpritePlugin;
 

@@ -13,7 +13,7 @@ pub struct Sprite {
     /// An optional custom size for the sprite that will be used when rendering, instead of the size
     /// of the sprite's image
     pub custom_size: Option<Vec2>,
-    /// [`bevy_sprite::Anchor`] point of the sprite in the world
+    /// [`bevy::sprite::Anchor`] point of the sprite in the world
     pub anchor: Anchor,
 }
 
