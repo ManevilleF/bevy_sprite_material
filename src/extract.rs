@@ -1,26 +1,28 @@
 use crate::Sprite;
 use bevy::asset::{Assets, Handle};
+use bevy::ecs::prelude::Entity;
 use bevy::ecs::prelude::{Query, Res, ResMut};
 use bevy::render::prelude::Visibility;
 use bevy::render::texture::DEFAULT_IMAGE_HANDLE;
-use bevy::render::RenderWorld;
+use bevy::render::Extract;
 use bevy::sprite::{ColorMaterial, ExtractedSprite, ExtractedSprites};
 use bevy::transform::prelude::GlobalTransform;
 use copyless::VecHelper;
 
 pub fn extract_sprites(
-    mut render_world: ResMut<RenderWorld>,
-    materials: Res<Assets<ColorMaterial>>,
-    sprite_query: Query<(
-        &Visibility,
-        &Sprite,
-        &GlobalTransform,
-        &Handle<ColorMaterial>,
-    )>,
+    mut extracted_sprites: ResMut<ExtractedSprites>,
+    materials: Extract<Res<Assets<ColorMaterial>>>,
+    sprite_query: Extract<
+        Query<(
+            Entity,
+            &Visibility,
+            &Sprite,
+            &GlobalTransform,
+            &Handle<ColorMaterial>,
+        )>,
+    >,
 ) {
-    let mut extracted_sprites = render_world.get_resource_mut::<ExtractedSprites>().unwrap();
-    // Regular Sprites
-    for (visibility, sprite, transform, handle) in sprite_query.iter() {
+    for (entity, visibility, sprite, transform, handle) in sprite_query.iter() {
         if !visibility.is_visible {
             continue;
         }
@@ -34,6 +36,7 @@ pub fn extract_sprites(
         );
         // PERF: we don't check in this function that the `Image` asset is ready, since it should be in most cases and hashing the handle is expensive
         extracted_sprites.sprites.alloc().init(ExtractedSprite {
+            entity,
             color,
             transform: *transform,
             // Use the full texture

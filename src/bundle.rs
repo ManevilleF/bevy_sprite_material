@@ -1,6 +1,7 @@
 use crate::Sprite;
 use bevy::asset::Handle;
 use bevy::ecs::bundle::Bundle;
+use bevy::prelude::ComputedVisibility;
 use bevy::render::view::Visibility;
 use bevy::sprite::ColorMaterial;
 use bevy::transform::components::{GlobalTransform, Transform};
@@ -18,4 +19,6 @@ pub struct SpriteBundle {
     pub material: Handle<ColorMaterial>,
     /// User indication of whether an entity is visible
     pub visibility: Visibility,
+    /// system indication of whether an entity is visible
+    pub computed_visibility: ComputedVisibility,
 }

@@ -18,14 +18,14 @@ categories = ["game-engines", "game-development"]
 copyless = "0.1"
 
 [dependencies.bevy]
-git = "https://github.com/bevyengine/bevy"
+version = "0.8"
 default-features = false
-features = ["bevy_sprite", "png"]
+features = ["bevy_sprite", "png", "bevy_asset"]
 
 [dev-dependencies.bevy]
-git = "https://github.com/bevyengine/bevy"
+version = "0.8"
 default-features = false
-features = ["render", "bevy_winit", "x11"]
+features = ["render", "bevy_winit", "x11", "bevy_asset"]
 
 [[example]]
 name = "changing_colors"

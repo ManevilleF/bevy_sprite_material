@@ -48,6 +48,7 @@
 
 use bevy::app::{App, Plugin};
 use bevy::ecs::prelude::*;
+use bevy::log;
 use bevy::render::{RenderApp, RenderStage};
 pub use bevy::sprite::ColorMaterial;
 use bevy::sprite::SpriteSystem::ExtractSprites;
@@ -71,6 +72,9 @@ impl Plugin for MaterialSpritePlugin {
                 RenderStage::Extract,
                 extract::extract_sprites.after(ExtractSprites),
             );
+        } else {
+            log::error!("Failed to load Render App");
         }
+        log::info!("Loaded Material Sprite plugin");
     }
 }

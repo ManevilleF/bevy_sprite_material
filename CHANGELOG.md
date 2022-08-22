@@ -1,5 +1,9 @@
 # CHANGES
 
+## Unreleased
+
+* Bevy `0.8`
+
 ## 0.2.0
 
 * Bevy `0.7`
