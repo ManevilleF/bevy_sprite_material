@@ -9,7 +9,7 @@ struct MaterialResource {
 fn main() {
     App::new()
         .insert_resource(WindowDescriptor {
-            title: "Game Of Life".to_string(),
+            title: "Changing Colors".to_string(),
             ..Default::default()
         })
         .add_plugins(DefaultPlugins)
@@ -22,7 +22,7 @@ fn main() {
 
 fn setup_camera(mut commands: Commands) {
     // Camera
-    commands.spawn_bundle(OrthographicCameraBundle::new_2d());
+    commands.spawn_bundle(Camera2dBundle::default());
 }
 
 fn setup_map(mut commands: Commands, mut materials: ResMut<Assets<ColorMaterial>>) {
@@ -46,7 +46,7 @@ fn setup_map(mut commands: Commands, mut materials: ResMut<Assets<ColorMaterial>
 }
 
 fn change_color(mut materials: ResMut<Assets<ColorMaterial>>, material: Res<MaterialResource>) {
-    let material = materials.get_mut(material.material.clone()).unwrap();
+    let material = materials.get_mut(&material.material).unwrap();
     if material.color.r() < 1. {
         material.color.set_r(material.color.r() + 0.02);
     } else {

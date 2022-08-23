@@ -41,32 +41,27 @@
 #![forbid(unsafe_code)]
 #![warn(
     clippy::all,
-    clippy::correctness,
-    clippy::suspicious,
-    clippy::style,
-    clippy::complexity,
-    clippy::perf,
     clippy::nursery,
     nonstandard_style,
-    rustdoc::broken_intra_links
+    rustdoc::broken_intra_doc_links
 )]
 
-use bevy_app::{App, Plugin};
-use bevy_ecs::prelude::*;
-use bevy_render::{RenderApp, RenderStage};
-pub use bevy_sprite::ColorMaterial;
-use bevy_sprite::SpriteSystem::ExtractSprites;
+use bevy::app::{App, Plugin};
+use bevy::ecs::prelude::*;
+use bevy::log;
+use bevy::render::{RenderApp, RenderStage};
+pub use bevy::sprite::ColorMaterial;
+use bevy::sprite::SpriteSystem::ExtractSprites;
 
-pub use {bundle::SpriteBundle, sprite::Sprite, texture_atlas::TextureAtlasSprite};
+pub use {bundle::SpriteBundle, sprite::Sprite};
 
 mod bundle;
 mod extract;
 mod sprite;
-mod texture_atlas;
 
 /// Plugin to use sprites with materials.
 ///
-/// It requires both [`bevy_sprite::SpritePlugin`] and [`bevy_sprite::ColorMaterialPlugin`]
+/// It requires both [`bevy::sprite::SpritePlugin`] and [`bevy::sprite::ColorMaterialPlugin`]
 #[derive(Default)]
 pub struct MaterialSpritePlugin;
 
@@ -77,6 +72,9 @@ impl Plugin for MaterialSpritePlugin {
                 RenderStage::Extract,
                 extract::extract_sprites.after(ExtractSprites),
             );
+        } else {
+            log::error!("Failed to load Render App");
         }
+        log::info!("Loaded Material Sprite plugin");
     }
 }
