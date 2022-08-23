@@ -9,6 +9,7 @@ use bevy::sprite::{ColorMaterial, ExtractedSprite, ExtractedSprites};
 use bevy::transform::prelude::GlobalTransform;
 use copyless::VecHelper;
 
+#[allow(clippy::type_complexity)]
 pub fn extract_sprites(
     mut extracted_sprites: ResMut<ExtractedSprites>,
     materials: Extract<Res<Assets<ColorMaterial>>>,
